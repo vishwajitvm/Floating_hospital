@@ -83,6 +83,9 @@
 	<script src="{{asset('../assets/vendor_components/fullcalendar/fullcalendar.min.js')}}"></script>
 	<script src="{{asset('backend/js/pages/calendar.js')}}"></script>
 
+  <script src="{{asset('../assets/vendor_plugins/iCheck/icheck.min.js')}}"></script>
+
+
 
 	
 

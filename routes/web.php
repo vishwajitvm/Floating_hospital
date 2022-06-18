@@ -13,6 +13,7 @@ use Illuminate\Support\Facades\Artisan;
 
 //admin
 use App\Http\Controllers\admin\ManageDepartmentController ;
+use App\Http\Controllers\admin\AttendenceManagementAdminCOntroller ;
 
 
 /*
@@ -141,6 +142,21 @@ Route::prefix('admin-department')->group(function() {
 
     //delete
     Route::get('/delete/{id}' , [ManageDepartmentController::class , 'DeleteDepartment'])->name('admin-department.delete') ; 
+
+}) ;
+
+//
+//MANAGE USERS OR EMPLOYEE ATTENDENCE
+//
+Route::prefix('attendence-management')->group(function() {
+    //add
+    Route::get('/add' , [AttendenceManagementAdminCOntroller::class , 'AddAddendenceOfEmployee'])->name('attendence-management.add') ; 
+
+    //store
+    Route::post('/store' , [AttendenceManagementAdminCOntroller::class , 'StoreAttendence'])->name('attendence-management.store') ; 
+
+    //viewall
+    Route::get('/viewall' , [AttendenceManagementAdminCOntroller::class , 'ViewallUsersattendence'])->name('attendence-management.viewall') ; 
 
 
 }) ;

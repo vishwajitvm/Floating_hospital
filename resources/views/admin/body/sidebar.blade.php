@@ -81,8 +81,8 @@
             </span>
           </a>
           <ul class="treeview-menu">
-            <li><a href="mailbox_inbox.html"><i class="ti-more"></i>Add</a></li>
-            <li><a href="mailbox_compose.html"><i class="ti-more"></i>View all</a></li>
+            <li><a href="{{ Route('attendence-management.add') }}"><i class="ti-more"></i>Add</a></li>
+            <li><a href="{{ Route('attendence-management.viewall') }}"><i class="ti-more"></i>View all</a></li>
             <li><a href="mailbox_inbox.html"><i class="ti-more"></i>View Todays</a></li>
           </ul>
         </li>
@@ -114,14 +114,6 @@
       </ul>
     </section>
 	
-	{{-- <div class="sidebar-footer">
-		<!-- item-->
-		<a href="javascript:void(0)" class="link" data-toggle="tooltip" title="" data-original-title="Settings" aria-describedby="tooltip92529"><i class="ti-settings"></i></a>
-		<!-- item-->
-		<a href="mailbox_inbox.html" class="link" data-toggle="tooltip" title="" data-original-title="Email"><i class="ti-email"></i></a>
-		<!-- item-->
-		<a href="javascript:void(0)" class="link" data-toggle="tooltip" title="" data-original-title="Logout"><i class="ti-lock"></i></a>
-	</div> --}}
   </aside>
 
  
