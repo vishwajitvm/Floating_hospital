@@ -41,8 +41,8 @@
           <ul class="treeview-menu">
             <li><a href="{{route('user.view')}} "><i class="ti-more"></i>View User</a></li>
             <li><a href="{{ route('users.add') }} "><i class="ti-more"></i>Add User</a></li>
-            <li> <a href="{{ route('user.managerequest') }} "><i class="ti-more"></i> Manage Request </a> </li>
-            <li> <a href=" {{ Route('user.inactiveusers') }} "><i class="ti-more"></i> Inactive User </a> </li>
+            {{-- <li> <a href="{{ route('user.managerequest') }} "><i class="ti-more"></i> Manage Request </a> </li> --}}
+            {{-- <li> <a href=" {{ Route('user.inactiveusers') }} "><i class="ti-more"></i> Inactive User </a> </li> --}}
 
           </ul>
         </li> 
@@ -73,7 +73,7 @@
           </ul>
         </li>
 
-        <li class="treeview">
+        <li class="treeview {{ ($prefix == '/attendence-management')?'active':'' }}">
           <a href="#">
             <i data-feather="mail"></i> <span>Manage Attendence</span>
             <span class="pull-right-container">

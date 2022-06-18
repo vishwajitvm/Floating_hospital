@@ -41,6 +41,21 @@
 
                                 <div class="col-md-6"><!--col-6 stared here-->
                                     <div class="form-group">
+                                        <h5>Department <span class="text-danger">*</span></h5>
+                                        <div class="controls">
+                                            <select name="user_department" id="select" required class="form-control">
+                                                <option value="" selected="" disabled>Select Department</option>
+                                               @foreach ($data as $item)
+                                               <option value="{{ $item->department_name }} "> {{ $item->department_name }} </option>
+                                               @endforeach
+                                            </select>
+                                        </div>
+                                    </div>
+                                </div><!--col-6 Ended here-->
+
+
+                                <div class="col-md-12"><!--col-6 stared here-->
+                                    <div class="form-group">
                                         <h5>User Name <span class="text-danger">*</span></h5>
                                         <div class="controls">
                                             <input type="text" name="name" class="form-control" required> </div>
@@ -73,7 +88,7 @@
                               <div class="row">
                                   <div class="col-md-6"><!--col-6 stared here-->
                                       <div class="form-group">
-                                          <h5>User Mobile<span class="text-danger">*</span></h5>
+                                          <h5>User Mobile</h5>
                                           <div class="controls">
                                               <input type="text" name="mobile" class="form-control"  required="" aria-invalid="false"> </div>
                                       </div>
@@ -81,7 +96,7 @@
   
                                   <div class="col-md-6"><!--col-6 stared here-->
                                       <div class="form-group">
-                                          <h5>User Address <span class="text-danger">*</span></h5>
+                                          <h5>User Address </h5>
                                           <div class="controls">
                                               <input type="text" name="address" class="form-control"  required> </div>
                                       </div>
@@ -95,7 +110,7 @@
                               <div class="row">
                                   <div class="col-md-6"><!--col-6 stared here-->
                                       <div class="form-group">
-                                          <h5>User Gender <span class="text-danger">*</span></h5>
+                                          <h5>User Gender </h5>
                                           <div class="controls">
                                               <select name="gender" id="gender" required  class="form-control">
                                                   <option value="" selected="" disabled>Select Gender</option>
@@ -111,7 +126,7 @@
                                   <!---******NEW DATA **** -->
                                   <div class="col-md-6"><!--col-6 stared here-->
                                       <div class="form-group">
-                                          <h5>Date Of Birth <span class="text-danger">*</span></h5>
+                                          <h5>Date Of Birth </h5>
                                           <div class="controls">
                                               <input type="date" name="birth_date" class="form-control"   > </div>
                                       </div>
@@ -119,7 +134,7 @@
   
                                   <div class="col-md-6"><!--col-6 stared here-->
                                       <div class="form-group">
-                                          <h5>Your Gmail Address <span class="text-danger">*</span></h5>
+                                          <h5>Your Gmail Address </h5>
                                           <div class="controls">
                                               <input type="text" name="gmail_address" class="form-control" >
                                            </div>
@@ -129,7 +144,7 @@
   
                                   <div class="col-md-6"><!--col-6 stared here-->
                                       <div class="form-group">
-                                          <h5>Your Facebook Profile <span class="text-danger">*</span></h5>
+                                          <h5>Your Facebook Profile </h5>
                                           <div class="controls">
                                               <input type="text" name="facebook_profile" class="form-control"  > </div>
                                       </div>
@@ -137,7 +152,7 @@
   
                                   <div class="col-md-6"><!--col-6 stared here-->
                                       <div class="form-group">
-                                          <h5>Your Instagram Profile <span class="text-danger">*</span></h5>
+                                          <h5>Your Instagram Profile </h5>
                                           <div class="controls">
                                               <input type="text" name="instagram_profile" class="form-control"  > </div>
                                       </div>
@@ -145,51 +160,15 @@
   
                                   <div class="col-md-6"><!--col-6 stared here-->
                                       <div class="form-group">
-                                          <h5>Your linkdine Profile <span class="text-danger">*</span></h5>
+                                          <h5>Your linkdine Profile </h5>
                                           <div class="controls">
                                               <input type="text" name="linkdine_profile" class="form-control"  > </div>
                                       </div>
-                                  </div><!--col-6 Ended here-->
+                                  </div><!--col-6 Ended here-->                             
   
-                                  <div class="col-md-6"><!--col-6 stared here-->
+                                  <div class="col-md-12"><!--col-6 stared here-->
                                       <div class="form-group">
-                                          <h5>How you hear about our party <span class="text-danger">*</span></h5>
-                                          <div class="controls">
-                                              <select name="hear_about_party" id="hear_about_party" required  class="form-control">
-                                                  <option value="" selected="" disabled>---Select Any---</option>
-                                                  <option value="Friends"  > Friends </option>
-                                                  <option value="Newspaper" > Newspaper </option>
-                                                  <option value="Facebook"  > Facebook </option>
-                                                  <option value="Instagram" > Instagram </option>
-                                                  <option value="Internet-search" > Internet-search </option>
-                                                  <option value="Blog"  > Blog </option>
-                                                  <option value="LBB" > LBB </option>
-                                              </select>
-                                          </div>
-                                      </div>
-                                  </div><!--col-6 Ended here-->
-  
-                                  <div class="col-md-6"><!--col-6 stared here-->
-                                      <div class="form-group">
-                                          <h5>What are your expections from aragma? <span class="text-danger">*</span></h5>
-                                          <div class="controls">
-                                              <input type="text" name="expectation_from_aragma"  class="form-control"  > </div>
-                                      </div>
-                                  </div><!--col-6 Ended here-->
-  
-                                  <div class="col-md-6"><!--col-6 stared here-->
-                                      <div class="form-group">
-                                          <h5>What is Your Tallent ? <span class="text-danger">*</span></h5>
-                                          <div class="controls">
-                                              <input type="text" name="user_tallent" class="form-control"   > </div>
-                                      </div>
-                                  </div><!--col-6 Ended here-->
-                                  <!--*****new data end here**--->
-                                  
-  
-                                  <div class="col-md-6"><!--col-6 stared here-->
-                                      <div class="form-group">
-                                          <h5>Profile Image <span class="text-danger">*</span></h5>
+                                          <h5>Profile Image </h5>
                                           <div class="controls">
                                               <input type="file" name="image" class="form-control" id="image"   > </div>
                                       </div>

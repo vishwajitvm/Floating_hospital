@@ -90,7 +90,7 @@
                                   <td  style="{{($row1->department_status ==1)?'color:green':'color:red' }} ; font-size:18px"> {{$row1->department_status == 1?"Active":"Inactive"}} </td>    
                                   <td>
                                     <!--button here-->
-                                    <a class="btn btn-danger" href=" {{Route('users.delete',$row1->id)}}" id="delete">Delete</a>
+                                    <a class="btn btn-danger" href=" {{Route('admin-department.delete',$row1->id)}}" id="delete">Delete</a>
                                   </td>
                               </tr>
                             @endforeach

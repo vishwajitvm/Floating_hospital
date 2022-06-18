@@ -34,5 +34,15 @@ class ManageDepartmentController extends Controller
         return redirect()->route('admin-department.add')->with($notification) ;
     }
 
-    //
+    //delete 
+    public function DeleteDepartment($id) {
+        $user = Department::find($id) ;
+        $user->delete() ;
+        $notification = array(
+            'message' => 'Selected Department Deleted Successfully',
+            'alert-type' => 'info'
+        ) ;
+        return redirect()->route('admin-department.add')->with($notification) ;
+
+    }
 }

@@ -5,6 +5,7 @@ namespace App\Http\Controllers\backend;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\User;
+use App\Models\Department ;
 
 class UserController extends Controller
 {
@@ -19,8 +20,10 @@ class UserController extends Controller
 
     //ADD users 
     public function UserAdd() {
-        return view('backend.user.add_user') ;
+        $data = Department::all() ;
+        return view('backend.user.add_user' , compact(['data'])) ;
     }
+
     //storing updated data
     public function UserStore(Request $request) {
         $validatedData = $request->validate([
@@ -30,6 +33,7 @@ class UserController extends Controller
 
         $data = new User() ;
         $data->usertype = $request->usertype ;
+        $data->user_department = $request->user_department ;
         $data->name = $request->name ;
         $data->email = $request->email ;
         $data->password = bcrypt($request->password);
@@ -41,9 +45,6 @@ class UserController extends Controller
         $data->facebook_profile = $request->facebook_profile ;
         $data->instagram_profile = $request->instagram_profile ;
         $data->linkdine_profile = $request->linkdine_profile ;
-        $data->hear_about_party = $request->hear_about_party ;
-        $data->expectation_from_aragma = $request->expectation_from_aragma ;
-        $data->user_tallent = $request->user_tallent ;
             // $data->image = $request->image ;
         if($request->file('image')) {
             $file = $request->file('image') ;
@@ -74,12 +75,14 @@ class UserController extends Controller
     //edit users or update users data
     public function UserEdit($id) {
         $editData = User::find($id) ;
-        return view('backend.user.edit_user' , compact('editData')) ;
+        $data = Department::all() ;
+        return view('backend.user.edit_user' , compact(['editData' , 'data'])) ;
     }
 
     public function UserUpdate(Request $request , $id) {
         $data = User::find($id) ;
         $data->usertype = $request->usertype ;
+        $data->user_department = $request->user_department ;
         $data->name = $request->name ;
         $data->email = $request->email ;
         $data->mobile = $request->mobile ;
@@ -90,9 +93,6 @@ class UserController extends Controller
         $data->facebook_profile = $request->facebook_profile ;
         $data->instagram_profile = $request->instagram_profile ;
         $data->linkdine_profile = $request->linkdine_profile ;
-        $data->hear_about_party = $request->hear_about_party ;
-        $data->expectation_from_aragma = $request->expectation_from_aragma ;
-        $data->user_tallent = $request->user_tallent ;
         $data->status = $request->status ;
 
         $data->save() ;

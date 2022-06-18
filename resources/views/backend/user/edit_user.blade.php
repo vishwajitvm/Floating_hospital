@@ -31,13 +31,34 @@
                                         <div class="controls">
                                             <select name="usertype" style="background:#6a425c ; " id="select" required  class="form-control">
                                                 <option value="" selected="" disabled>Select Role</option>
-                                                <option value="Admin" {{ $editData->usertype == "Admin" ? "Selected": "" }} >Admin</option>
-                                                <option value="User" {{ $editData->usertype == "User" ? "Selected": "" }}  >User</option>
+                                                <option value="Admin" {{ $editData->usertype == "admin"? "Selected": "" }} >Admin</option>
+                                                <option value="User" {{ $editData->usertype == "user" ? "Selected": "" }}  >User</option>
 
                                             </select>
                                         </div>
                                     </div>
                                 </div><!--col-6 Ended here-->
+
+                                <div class="col-12">	
+                                    <!--row Stared here-->
+                                 <div class="row">
+                                     <div class="col-md-12"><!--col-6 stared here-->
+                                         <div class="form-group">
+                                             <h5>Department <span class="text-danger">*</span></h5>
+                                             <div class="controls">
+                                                 <select name="user_department" style="background:#6a425c ; " id="select" required  class="form-control">
+                                                     <option value="" selected="" disabled>Select Department</option>
+
+                                                     @foreach ($data as $itemss)
+                                                     <option value="{{ $itemss->department_name }}" {{ $editData->user_department == $itemss->department_name ? "Selected": "" }} > {{ $itemss->department_name }} </option>
+
+                                                     @endforeach
+     
+                                                 </select>
+                                             </div>
+                                         </div>
+                                     </div><!--col-6 Ended here-->
+     
 
                                 
 
@@ -65,7 +86,7 @@
 
                                 <div class="col-md-6"><!--col-6 stared here-->
                                     <div class="form-group">
-                                        <h5>User Mobile<span class="text-danger">*</span></h5>
+                                        <h5>User Mobile</h5>
                                         <div class="controls">
                                             <input type="text" name="mobile" class="form-control" value=" {{$editData->mobile}} " required="" aria-invalid="false"> </div>
                                     </div>
@@ -73,7 +94,7 @@
 
                                 <div class="col-md-6"><!--col-6 stared here-->
                                     <div class="form-group">
-                                        <h5>User address<span class="text-danger">*</span></h5>
+                                        <h5>User address</h5>
                                         <div class="controls">
                                             <input type="text" name="address" class="form-control" value=" {{$editData->address}} " required="" aria-invalid="false"> </div>
                                     </div>
@@ -81,7 +102,7 @@
 
                                 <div class="col-md-6"><!--col-6 stared here-->
                                     <div class="form-group">
-                                        <h5>User gender <span class="text-danger">*</span></h5>
+                                        <h5>User gender </h5>
                                         <div class="controls">
                                             <select name="gender" id="select" required  class="form-control">
                                                 <option value="" selected="" disabled>Select Gender</option>
@@ -96,7 +117,7 @@
 
                                 <div class="col-md-6"><!--col-6 stared here-->
                                     <div class="form-group">
-                                        <h5>User Date Of Birth<span class="text-danger">*</span></h5>
+                                        <h5>User Date Of Birth</h5>
                                         <div class="controls">
                                             <input type="date" name="birth_date" class="form-control"  value= {{$editData->birth_date}}  required="" aria-invalid="false"> </div>
                                     </div>
@@ -110,7 +131,7 @@
 
                                 <div class="col-md-6"><!--col-6 stared here-->
                                     <div class="form-group">
-                                        <h5>User gmail_address<span class="text-danger">*</span></h5>
+                                        <h5>User gmail_address</h5>
                                         <div class="controls">
                                             <input type="text" name="gmail_address" class="form-control" value=" {{$editData->gmail_address}} " required="" aria-invalid="false"> </div>
                                     </div>
@@ -118,7 +139,7 @@
 
                                 <div class="col-md-6"><!--col-6 stared here-->
                                     <div class="form-group">
-                                        <h5>User facebook_profile<span class="text-danger">*</span></h5>
+                                        <h5>User facebook_profile</h5>
                                         <div class="controls">
                                             <input type="text" name="facebook_profile" class="form-control" value=" {{$editData->facebook_profile}} " required="" aria-invalid="false"> </div>
                                     </div>
@@ -126,7 +147,7 @@
 
                                 <div class="col-md-6"><!--col-6 stared here-->
                                     <div class="form-group">
-                                        <h5>User instagram_profile<span class="text-danger">*</span></h5>
+                                        <h5>User instagram_profile</h5>
                                         <div class="controls">
                                             <input type="text" name="instagram_profile" class="form-control" value=" {{$editData->instagram_profile}} " required="" aria-invalid="false"> </div>
                                     </div>
@@ -134,51 +155,17 @@
 
                                 <div class="col-md-6"><!--col-6 stared here-->
                                     <div class="form-group">
-                                        <h5>User linkdine_profile<span class="text-danger">*</span></h5>
+                                        <h5>User linkdine_profile</h5>
                                         <div class="controls">
                                             <input type="text" name="linkdine_profile" class="form-control" value=" {{$editData->linkdine_profile}} "  aria-invalid="false"> </div>
                                     </div>
                                 </div>
 
-                                <div class="col-md-6"><!--col-6 stared here-->
+
+
+                                <div class="col-md-12"><!--col-6 stared here-->
                                     <div class="form-group">
-                                        <h5>How you hear about our party <span class="text-danger">*</span></h5>
-                                        <div class="controls">
-                                            <select name="hear_about_party" id="hear_about_party" required  class="form-control">
-                                                <option value="" selected="" disabled>---Select Any---</option>
-                                                <option value="Friends" {{ $editData->hear_about_party == "Friends" ? "Selected": "" }} > Friends </option>
-                                                <option value="Newspaper" {{ $editData->hear_about_party == "Newspaper" ? "Selected": "" }} > Newspaper </option>
-                                                <option value="Facebook" {{ $editData->hear_about_party == "Facebook" ? "Selected": "" }}  > Facebook </option>
-                                                <option value="Instagram" {{ $editData->hear_about_party == "Instagram" ? "Selected": "" }} > Instagram </option>
-                                                <option value="Internet-search" {{ $editData->hear_about_party == "Internet-search" ? "Selected": "" }} > Internet-search </option>
-                                                <option value="Blog" {{ $editData->hear_about_party == "Blog" ? "Selected": "" }}  > Blog </option>
-                                                <option value="LBB" {{ $editData->hear_about_party == "LBB" ? "Selected": "" }} > LBB </option>
-                                            </select>
-                                        </div>
-                                    </div>
-                                </div><!--col-6 Ended here-->
-
-                                <div class="col-md-6"><!--col-6 stared here-->
-                                    <div class="form-group">
-                                        <h5>User expectation_from_aragma<span class="text-danger">*</span></h5>
-                                        <div class="controls">
-                                            <input type="text" name="expectation_from_aragma" class="form-control" value=" {{$editData->expectation_from_aragma}} "  aria-invalid="false"> </div>
-                                    </div>
-                                </div>
-
-                                <div class="col-md-6"><!--col-6 stared here-->
-                                    <div class="form-group">
-                                        <h5>User user_tallent<span class="text-danger">*</span></h5>
-                                        <div class="controls">
-                                            <input type="text" name="expectation_from_aragma" class="form-control" value=" {{$editData->user_tallent}} "  aria-invalid="false"> </div>
-                                    </div>
-                                </div>
-
-
-
-                                <div class="col-md-6"><!--col-6 stared here-->
-                                    <div class="form-group">
-                                        <h5>User Status <span class="text-danger">*</span></h5>
+                                        <h5>User Status </h5>
                                         <div class="controls">
                                             <select name="status" id="select" required  class="form-control">
                                                 <option value="" selected="" disabled>Select Role</option>

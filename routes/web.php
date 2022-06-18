@@ -139,6 +139,9 @@ Route::prefix('admin-department')->group(function() {
     //store
     Route::post('/store' , [ManageDepartmentController::class , 'StoreDepartment'])->name('admin-department.store') ; 
 
+    //delete
+    Route::get('/delete/{id}' , [ManageDepartmentController::class , 'DeleteDepartment'])->name('admin-department.delete') ; 
+
 
 }) ;
 
