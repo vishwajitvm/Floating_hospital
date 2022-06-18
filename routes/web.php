@@ -11,6 +11,8 @@ use Illuminate\Support\Facades\Auth ;
 use App\Models\User ;
 use Illuminate\Support\Facades\Artisan;
 
+//admin
+use App\Http\Controllers\admin\ManageDepartmentController ;
 
 
 /*
@@ -126,6 +128,23 @@ Route::prefix('profile')->group(function() {
 
     Route::post('/password/update' , [ProfileController::class , 'PasswordUpdate'])->name('password.update') ;   
 }) ;
+
+//
+//Manages Department 
+//
+Route::prefix('admin-department')->group(function() {
+    //add
+    Route::get('/add' , [ManageDepartmentController::class , 'DepartmentManagementADMIN'])->name('admin-department.add') ; 
+
+    //store
+    Route::post('/store' , [ManageDepartmentController::class , 'StoreDepartment'])->name('admin-department.store') ; 
+
+
+}) ;
+
+
+
+
 
 //
 //************************************************************ *//

@@ -6,8 +6,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="">
     <meta name="author" content="">
-    <link rel="icon" href=" {{asset('backend/images/faviconnew.png')}} ">
-    <title>Aragma - Admin Panel</title>
+    <link rel="icon" href=" {{asset('backend/images/logo/logo.png')}} ">
+    <title>Floating Hospital - Admin Panel</title>
     
 	<!-- Vendors Style-->
 	<link rel="stylesheet" href="{{asset('backend/css/vendors_css.css')}}">

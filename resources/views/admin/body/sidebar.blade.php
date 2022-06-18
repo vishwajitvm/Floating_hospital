@@ -14,7 +14,7 @@
 				  <!-- logo for regular state and mobile devices -->
 					 <div class="d-flex align-items-center justify-content-center">					 	
 						  <img src="{{asset('backend/images/logo/logo.png')}}" style="width: 40%" alt="">
-						  {{-- <h3><b> Unicorn </b> Admin</h3> --}}
+						  {{-- <h3><b class="text-success"> The <span class="text-warning">Floating</span> </b> Hospital</h3> --}}
 					 </div>
 				</a>
 			</div>
@@ -60,7 +60,32 @@
           </ul>
         </li>
 
+        <li class="treeview {{ ($prefix == '/admin-department')?'active':'' }}">
+          <a href="#">
+            <i data-feather="mail"></i> <span>Manage Department</span>
+            <span class="pull-right-container">
+              <i class="fa fa-angle-right pull-right"></i>
+            </span>
+          </a>
+          <ul class="treeview-menu">
+            <li><a href="{{Route('admin-department.add')}}"><i class="ti-more"></i>Add Department</a></li>
+            <li><a href="mailbox_compose.html"><i class="ti-more"></i>View Department</a></li>
+          </ul>
+        </li>
 
+        <li class="treeview">
+          <a href="#">
+            <i data-feather="mail"></i> <span>Manage Attendence</span>
+            <span class="pull-right-container">
+              <i class="fa fa-angle-right pull-right"></i>
+            </span>
+          </a>
+          <ul class="treeview-menu">
+            <li><a href="mailbox_inbox.html"><i class="ti-more"></i>Add</a></li>
+            <li><a href="mailbox_compose.html"><i class="ti-more"></i>View all</a></li>
+            <li><a href="mailbox_inbox.html"><i class="ti-more"></i>View Todays</a></li>
+          </ul>
+        </li>
 
 
         {{-- <li class="treeview">
