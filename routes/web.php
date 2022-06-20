@@ -14,6 +14,7 @@ use Illuminate\Support\Facades\Artisan;
 //admin
 use App\Http\Controllers\admin\ManageDepartmentController ;
 use App\Http\Controllers\admin\AttendenceManagementAdminCOntroller ;
+use App\Http\Controllers\admin\ManageEmoloyees ;
 
 
 /*
@@ -158,8 +159,23 @@ Route::prefix('attendence-management')->group(function() {
     //viewall
     Route::get('/viewall' , [AttendenceManagementAdminCOntroller::class , 'ViewallUsersattendence'])->name('attendence-management.viewall') ; 
 
+    //view todays view-today
+    Route::get('/view-today' , [AttendenceManagementAdminCOntroller::class , 'ViewTodaysAttendence'])->name('attendence-management.view-today') ; 
+
 
 }) ;
+
+//AJAX REQUEST TO FILTER USER ACCORDING TO DEPARTMENT
+Route::post('/ajax-get-department-data' , [AttendenceManagementAdminCOntroller::class , 'AJAXgetEmployeeDataBasedOnDepartment'])->name('ajax-get-department-data') ; 
+
+
+//Manages Employeee
+Route::prefix('employee')->group(function() {
+    //view all employees here
+    Route::get('/view' , [ManageEmoloyees::class , 'ViewallEmployees'])->name('employee.view') ; 
+
+});
+
 
 
 

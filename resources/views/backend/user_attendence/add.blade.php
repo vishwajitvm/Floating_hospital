@@ -38,7 +38,7 @@
                                     <div class="form-group">
                                         <h5>Department </h5>
                                         <div class="controls">
-                                            <select name="employee_department"  class="form-control">
+                                            <select name="employee_department" id="departmentdata"  class="form-control">
                                                 <option selected disabled>Select Department</option>
                                                 @foreach ($datadepartment as $item1)
                                                 <option value="{{ $item1->department_name }}" > {{ $item1->department_name }} </option>
@@ -52,24 +52,23 @@
                             <!--row Ended here-->
                             <br><br>
 
-                            <div class="row">
+                            <div class="row" id="returndata">
 
-                                   @foreach ($datauser as $item)
-                                   <div class="col-4">
+                                @foreach ($datauser as $item)
+                                <div class="col-4">
 
                                    <div class="form-group">
                                     <h5>{{ $item->name }} </h5>
                                     <input type="hidden" name="employee_name[]" value="{{ $item->name }}">
-                                    <input type="hidden" name="employee_email[]" value="{{ $item->email }}">
-                                    <div class="controls">
-                                        <select name="employee_attendence[]"  class="form-control">
-                                            <option value="onsite">Onsite </option>
-                                            <option value="Offsite">Offsite </option>
-                                            <option value="Absent">Absent </option>
-                                        </select>
+                                        <div class="controls">
+                                            <select name="employee_attendence[]"  class="form-control">
+                                                <option value="onsite">Onsite </option>
+                                                <option value="Offsite">Offsite </option>
+                                                <option value="Absent">Absent </option>
+                                            </select>
+                                        </div>
                                     </div>
                                 </div>
-                            </div>
                                    @endforeach
 
                             </div>
@@ -91,6 +90,26 @@
     </div>
 </div>
 <!-- /.content-wrapper -->
+
+<script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+
+<script>
+    $(document).ready(function() {
+        $("#departmentdata").change(function() {
+            let depData = $(this).val() ;
+            // alert(depData) ;
+            jQuery.ajax({
+                url: '/ajax-get-department-data',
+                type: 'post',
+                data: 'depData='+depData+'&_token={{ csrf_token() }}',
+                success: function(result){
+                    jQuery('#returndata').html(result) ;
+                }
+            })
+        })
+    })
+</script>
+
 
 
 

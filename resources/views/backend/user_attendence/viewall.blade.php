@@ -20,9 +20,12 @@
                           <thead>
                               <tr>
                                   <th width="5%">SL</th>
-                                  <th>Date</th>
+                                  <th width="10%">Date</th>
                                   <th> Department </th>
                                   <th> Employee Attendence </th>
+                                  {{-- <th width="2%"> Total Employee </th> --}}
+                                  <th width="2%"> Total present </th>
+                                  <th width="2%"> total absent </th>
                                   <th width="10%">Action</th>
                               </tr>
                           </thead>
@@ -51,21 +54,7 @@
                                                     </div>
                                                   </div>
 
-                                                  <div class="col-md-3 m-0 p-0">
-                                                    <div class="list-group">
-                                                      <a  class="list-group-item list-group-item-action active">
-                                                         Email
-                                                      </a>
-                                                      
-                                                      @empty($row1->employee_email)
-                                                      <span class="list-group-item list-group-item-action disabled"> N/A </span>
-                                                      @else
-                                                      @foreach ($row1->employee_email as $items)
-                                                      <span class="list-group-item list-group-item-action disabled"> {{ $items }} </span>
-                                                      @endforeach
-                                                      @endempty
-                                                    </div>
-                                                  </div>
+                                                 
                                   
                                                   <div class="col-md-4 m-0 p-0">
                                                     <div class="list-group">
@@ -87,6 +76,21 @@
                               
                                   </td>
                                   <!--exp-->
+                                  {{-- <td> {{ $user }} </td> --}}
+                                  {{-- <td> 0 </td> --}}
+                                  <td> 0 </td>
+
+                                  <!--experiment-->
+                                  <td>
+                                    @if ( array_key_exists("Absent", $row1->employee_attendence ) )
+                                      key exist
+                                    @else
+                                        null
+                                    @endif
+
+                                  </td>
+                                  <!--experiment-->
+
                                   <td>
                                     <!--button here-->
                                     <a class="btn btn-danger" href=" {{Route('admin-department.delete',$row1->id)}}" id="delete">Delete</a>

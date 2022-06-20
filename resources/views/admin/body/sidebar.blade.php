@@ -41,11 +41,26 @@
           <ul class="treeview-menu">
             <li><a href="{{route('user.view')}} "><i class="ti-more"></i>View User</a></li>
             <li><a href="{{ route('users.add') }} "><i class="ti-more"></i>Add User</a></li>
-            {{-- <li> <a href="{{ route('user.managerequest') }} "><i class="ti-more"></i> Manage Request </a> </li> --}}
-            {{-- <li> <a href=" {{ Route('user.inactiveusers') }} "><i class="ti-more"></i> Inactive User </a> </li> --}}
+            {{-- <li> <a href="{{ route('user.managerequest') }} "><i class="ti-more"></i> Manage Request </a> </li>
+            <li> <a href=" {{ Route('user.inactiveusers') }} "><i class="ti-more"></i> Inactive User </a> </li> --}}
 
           </ul>
         </li> 
+
+        {{-- <li class="treeview {{ ($prefix == '/employee')?'active':'' }}">
+          <a href="#">
+            <i data-feather="mail"></i> <span>Manage Employee</span>
+            <span class="pull-right-container">
+              <i class="fa fa-angle-right pull-right"></i>
+            </span>
+          </a>
+          <ul class="treeview-menu">
+            <li><a href="{{Route('employee.view')}}"><i class="ti-more"></i>View</a></li>
+            <li><a href="mailbox_compose.html"><i class="ti-more"></i>Add</a></li>
+          </ul>
+        </li> --}}
+
+
 		  
         <li class="treeview {{ ($prefix == '/profile')?'active':'' }}">
           <a href="#">
@@ -83,7 +98,7 @@
           <ul class="treeview-menu">
             <li><a href="{{ Route('attendence-management.add') }}"><i class="ti-more"></i>Add</a></li>
             <li><a href="{{ Route('attendence-management.viewall') }}"><i class="ti-more"></i>View all</a></li>
-            <li><a href="mailbox_inbox.html"><i class="ti-more"></i>View Todays</a></li>
+            <li><a href="{{ Route('attendence-management.view-today') }}"><i class="ti-more"></i>View Todays</a></li>
           </ul>
         </li>
 

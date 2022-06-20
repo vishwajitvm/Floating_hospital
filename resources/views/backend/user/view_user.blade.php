@@ -27,11 +27,8 @@
                       <thead>
                           <tr>
                               <th width="5%">SL</th>
-                              <th>Role</th>
                               <th>Department</th>
                               <th>Name</th>
-                              <th>Email</th>
-                              <th width="15%"> User Request Status </th>
                               <th >Action</th>
                           </tr>
                       </thead>
@@ -39,36 +36,10 @@
                         @foreach ($allData as $key => $user)
                           <tr>
                               <td> {{$key+1}} </td>
-                              <td> {{$user->usertype}} </td>
                               <td> {{$user->user_department}} </td>
 
                               <td> {{$user->name}} </td>
-                              <td> {{$user->email}} </td>
-                              <td  style="{{($user->status =='active')?'color:green':'color:red' }} ; font-size:18px"> {{$user->status}} </td>
-                              {{-- <td style="{{($user->usertype ==null)?'color:white;background:red':'color:white;background:green' }} ; font-size:18px" > {{ $user->usertype== null?" Not Approved ": "Approved" }} </td> --}}
-
-                              {{-- <td>
-                                <a href=" {{Route('users.userapprove',$user->id)}} "><span class="badge badge-lg badge-info" style="background: @if ($user->usertype ==null)
-                                  gray 
-                              @elseif($user->usertype == 'user')
-                                  green
-                              @else
-                                  red
-                              @endif "> 
-                                @if ($user->usertype ==null)
-                                    Not Approved User 
-                                @elseif($user->usertype == 'user')
-                                    Approved User
-                                @else
-                                    Admin
-                                @endif
-                                </span></a>
-
-                              </td> --}}
                               <td>
-                                <!--button here-->
-                                {{-- <a class="btn btn-success" href=" {{Route('users.viewuserprofile',$user->id)}} ">View User Profile</a>
-                                &nbsp;&nbsp; --}}
                                 <a class="btn btn-info" href=" {{Route('users.edit',$user->id)}} ">Edit</a>
                                 &nbsp;&nbsp;
                                 <a class="btn btn-danger" href=" {{Route('users.delete',$user->id)}}" id="delete">Delete</a>
