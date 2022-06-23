@@ -59,7 +59,7 @@ class AttendenceManagementAdminCOntroller extends Controller
             '<div class="col-4">
             <div class="form-group">
              <h5> '.  $row->name  .' </h5>
-             <input type="text" name="employee_name[]" value="'. $row->name .'">
+             <input type="hidden" name="employee_name[]" value="'. $row->name .'">
                  <div class="controls">
                      <select name="employee_attendence[]"  class="form-control">
                          <option value="onsite">Onsite </option>
