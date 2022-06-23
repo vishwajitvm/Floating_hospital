@@ -15,6 +15,7 @@ use Illuminate\Support\Facades\Artisan;
 use App\Http\Controllers\admin\ManageDepartmentController ;
 use App\Http\Controllers\admin\AttendenceManagementAdminCOntroller ;
 use App\Http\Controllers\admin\ManageEmoloyees ;
+use App\Http\Controllers\admin\ManageLocationController ;
 
 
 /*
@@ -113,6 +114,10 @@ Route::prefix('users')->group(function() {
 
 }) ;
 
+//AJAX REQUEST TO GETE THE DEPARTMENT DATA
+Route::post('/ajax-get-departments' , [UserController::class , 'AJAXRrequestToGetDepartmentData'])->name('ajax-get-departments') ;
+
+
 //
 //GROUP FOR YOUR PROFILE AND CHAANGE PASSWORD 
 //
@@ -130,6 +135,24 @@ Route::prefix('profile')->group(function() {
 
     Route::post('/password/update' , [ProfileController::class , 'PasswordUpdate'])->name('password.update') ;   
 }) ;
+
+//
+//MANAGE LOCATIONS 
+//
+Route::prefix('manage-location')->group(function() {
+    //add
+    Route::get('/add' , [ManageLocationController::class , 'AddLocation'])->name('manage-location.add') ;
+    
+    //Store
+    Route::post('/store' , [ManageLocationController::class , 'StoreLocations'])->name('manage-location.store') ;
+
+    //view
+    Route::get('/view' , [ManageLocationController::class , 'ViewLocations'])->name('manage-location.view') ;
+
+
+});
+
+
 
 //
 //Manages Department 

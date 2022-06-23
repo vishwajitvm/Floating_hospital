@@ -25,25 +25,28 @@
                            <div class="col-12">	
                                <!--row Stared here-->
                             <div class="row">
-                                {{-- <div class="col-md-6"><!--col-6 stared here-->
-                                    <div class="form-group">
-                                        <h5>User Role <span class="text-danger">*</span></h5>
-                                        <div class="controls">
-                                            <select name="usertype" id="select" required class="form-control">
-                                                <option value="" selected="" disabled>Select Role</option>
-                                                <option value="Admin">Admin</option>
-                                                <option value="User">User</option>
+                                
 
+                                <div class="col-md-6"><!--col-6 stared here-->
+                                    <div class="form-group">
+                                        <h5>Location <span class="text-danger">*</span></h5>
+                                        <div class="controls">
+                                            <select name="user_department_location" id="select_location" required class="form-control">
+                                                <option  selected="" disabled>Select Location</option>
+                                               @foreach ($data2 as $item)
+                                               <option value="{{ $item->location_name }} "> {{ $item->location_name }} </option>
+                                               @endforeach
                                             </select>
                                         </div>
                                     </div>
-                                </div><!--col-6 Ended here--> --}}
+                                </div><!--col-6 Ended here-->
+
 
                                 <div class="col-md-6"><!--col-6 stared here-->
                                     <div class="form-group">
                                         <h5>Department <span class="text-danger">*</span></h5>
                                         <div class="controls">
-                                            <select name="user_department" id="select" required class="form-control">
+                                            <select name="user_department" id="departmentData" required class="form-control">
                                                 <option value="" selected="" disabled>Select Department</option>
                                                @foreach ($data as $item)
                                                <option value="{{ $item->department_name }} "> {{ $item->department_name }} </option>
@@ -63,10 +66,6 @@
                                 </div><!--col-6 Ended here-->
                             </div>
                             <!--row Ended here-->
-
-  
-                            
-
 
                            </div>
                          </div>
@@ -106,6 +105,26 @@
         });
     });
 </script>
+
+<script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+
+<script>
+    $(document).ready(function() {
+        $("#select_location").change(function() {
+            let locationName = $(this).val() ;
+            // alert(depData) ;
+            jQuery.ajax({
+                url: '/ajax-get-departments',
+                type: 'post',
+                data: 'locationName='+locationName+'&_token={{ csrf_token() }}',
+                success: function(result){
+                    jQuery('#departmentData').html(result) ;
+                }
+            })
+        })
+    })
+</script>
+
 
 
 

@@ -27,6 +27,7 @@
                       <thead>
                           <tr>
                               <th width="5%">SL</th>
+                              <th> Location </th>
                               <th>Department</th>
                               <th>Name</th>
                               <th >Action</th>
@@ -36,6 +37,7 @@
                         @foreach ($allData as $key => $user)
                           <tr>
                               <td> {{$key+1}} </td>
+                              <th> {{ $user->user_department_location }} </th>
                               <td> {{$user->user_department}} </td>
 
                               <td> {{$user->name}} </td>

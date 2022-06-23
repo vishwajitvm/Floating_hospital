@@ -75,6 +75,20 @@
           </ul>
         </li>
 
+        <li class="treeview {{ ($prefix == '/manage-location')?'active':'' }}">
+          <a href="#">
+            <i data-feather="mail"></i> <span>Manage Location</span>
+            <span class="pull-right-container">
+              <i class="fa fa-angle-right pull-right"></i>
+            </span>
+          </a>
+          <ul class="treeview-menu">
+            <li><a href="{{Route('manage-location.add')}}"><i class="ti-more"></i>Add Location</a></li>
+            <li><a href="{{Route('manage-location.view')}}"><i class="ti-more"></i>View Location</a></li>
+          </ul>
+        </li>
+
+
         <li class="treeview {{ ($prefix == '/admin-department')?'active':'' }}">
           <a href="#">
             <i data-feather="mail"></i> <span>Manage Department</span>

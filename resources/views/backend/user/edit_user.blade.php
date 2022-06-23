@@ -25,6 +25,21 @@
                            <div class="col-12">	
                                <!--row Stared here-->
                             <div class="row">
+                                <div class="col-md-12"><!--col-6 stared here-->
+
+                                    <div class="form-group">
+                                        <h5>Location <span class="text-danger">*</span></h5>
+                                        <div class="controls">
+                                            <select name="user_department_location" id="select_locationsss" required class="form-control">
+                                                <option  selected="" disabled>Select Location</option>
+                                               @foreach ($data2 as $itemz)
+                                               <option value="{{ $itemz->location_name }} " {{ $editData->user_department_location == $itemz->location_name? "Selected": "" }} > {{ $itemz->location_name }} </option>
+                                               @endforeach
+                                            </select>
+                                        </div>
+                                    </div>
+                                </div><!--col-6 Ended here-->
+
 
                                 <div class="col-12">	
                                     <!--row Stared here-->
@@ -33,7 +48,7 @@
                                          <div class="form-group">
                                              <h5>Department <span class="text-danger">*</span></h5>
                                              <div class="controls">
-                                                 <select name="user_department" style="background:#6a425c ; " id="select" required  class="form-control">
+                                                 <select name="user_department"  id="departmentDatass" required  class="form-control">
                                                      <option value="" selected="" disabled>Select Department</option>
 
                                                      @foreach ($data as $itemss)
@@ -108,5 +123,24 @@
     </div>
 </div>
 <!-- /.content-wrapper -->
+
+<script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+
+<script>
+    $(document).ready(function() {
+        $("#select_locationsss").change(function() {
+            let locationName = $(this).val() ;
+            // alert(depData) ;
+            jQuery.ajax({
+                url: '/ajax-get-departments',
+                type: 'post',
+                data: 'locationName='+locationName+'&_token={{ csrf_token() }}',
+                success: function(result){
+                    jQuery('#departmentDatass').html(result) ;
+                }
+            })
+        })
+    })
+</script>
 
 @endsection

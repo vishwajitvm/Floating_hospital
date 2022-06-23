@@ -8,14 +8,16 @@ use App\Models\User ;
 use App\Models\Department ;
 use App\Models\employee_attendance ;
 use App\Models\new_user ;
+use App\Models\location ;
 
 class AttendenceManagementAdminCOntroller extends Controller
 {
     //add
     public function AddAddendenceOfEmployee() {
         $datauser = new_user::all() ;
+        $data2 = location::all() ;
         $datadepartment = Department::all() ;
-        return view('backend.user_attendence.add' ,compact(['datauser' , 'datadepartment'])) ;
+        return view('backend.user_attendence.add' ,compact(['datauser' , 'datadepartment' , 'data2'])) ;
     }
 
     //store
@@ -53,7 +55,8 @@ class AttendenceManagementAdminCOntroller extends Controller
     //AJAX REQUESTS
     public function AJAXgetEmployeeDataBasedOnDepartment(Request $request) {
         $depData = $request->post('depData') ;  //Department name
-        $data = new_user::all()->where('user_department' , $depData) ;
+        $LocationDepartment = $request->post('LocationDepartment') ; //location name
+        $data = new_user::all()->where('user_department' , $depData)->where('user_department_location' , $LocationDepartment) ;
         foreach ($data as $key=>$row) {
             $html = 
             '<div class="col-4">

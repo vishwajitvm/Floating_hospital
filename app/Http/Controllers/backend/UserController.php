@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use App\Models\User;
 use App\Models\Department ;
 use App\Models\new_user ;
+use App\Models\location ;
 
 class UserController extends Controller
 {
@@ -20,8 +21,20 @@ class UserController extends Controller
     //ADD users 
     public function UserAdd() {
         $data = Department::all() ;
-        return view('backend.user.add_user' , compact(['data'])) ;
+        $data2 = location::all() ;
+        return view('backend.user.add_user' , compact(['data' , 'data2'])) ;
     }
+
+    //AJAX REQUEST TO GET DEPARTMENT DATA
+    public function AJAXRrequestToGetDepartmentData(Request $request) {
+        $locationName = $request->post('locationName') ;  //Department name
+        $data121 = Department::all()->where('department_location' , $locationName) ;
+        $html = '<option value="" selected="" disabled>----Select Department----</option>' ;
+        foreach ($data121 as $key=>$row) {
+            $html.= '<option value="'. $row->department_name .'" > '. $row->department_name .' </option>' ;
+        } ;
+        echo $html;
+    } 
 
     //storing updated data
     public function UserStore(Request $request) {
@@ -30,7 +43,7 @@ class UserController extends Controller
         ]) ;
 
         $data = new new_user() ;
-        // $data->usertype = $request->usertype ;
+        $data->user_department_location = $request->user_department_location ;
         $data->user_department = $request->user_department ;
         $data->name = $request->name ;
         $data->save() ;
@@ -54,12 +67,14 @@ class UserController extends Controller
     public function UserEdit($id) {
         $editData = new_user::find($id) ;
         $data = Department::all() ;
-        return view('backend.user.edit_user' , compact(['editData' , 'data'])) ;
+        $data2 = location::all() ;
+
+        return view('backend.user.edit_user' , compact(['editData' , 'data' , 'data2'])) ;
     }
 
     public function UserUpdate(Request $request , $id) {
         $data = new_user::find($id) ;
-        // $data->usertype = $request->usertype ;
+        $data->user_department_location = $request->user_department_location ;
         $data->user_department = $request->user_department ;
         $data->name = $request->name ;
 
@@ -113,5 +128,7 @@ class UserController extends Controller
         return redirect()->route('user.view')->with($notification) ;
 
     }
+
+    
 
 }

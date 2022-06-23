@@ -28,13 +28,28 @@
                             <div class="row">
                                 <div class="col-md-6"><!--col-6 stared here-->
                                     <div class="form-group">
-                                        <h5>Department Name<span class="text-danger">*</span></h5>
+                                        <h5>Select Date<span class="text-danger">*</span></h5>
                                         <div class="controls">
                                             <input type="date" name="todays_date" class="form-control"  aria-invalid="false"> </div>
                                     </div>
                                 </div><!--col-6 Ended here-->
 
                                 <div class="col-md-6"><!--col-6 stared here-->
+                                    <div class="form-group">
+                                        <h5>Location <span class="text-danger">*</span></h5>
+                                        <div class="controls">
+                                            <select name="user_department_location" id="select_location" required class="form-control">
+                                                <option  selected="" disabled>Select Location</option>
+                                               @foreach ($data2 as $item)
+                                               <option value="{{ $item->location_name }} "> {{ $item->location_name }} </option>
+                                               @endforeach
+                                            </select>
+                                        </div>
+                                    </div>
+                                </div><!--col-6 Ended here-->
+
+
+                                <div class="col-md-12"><!--col-6 stared here-->
                                     <div class="form-group">
                                         <h5>Department </h5>
                                         <div class="controls">
@@ -97,11 +112,12 @@
     $(document).ready(function() {
         $("#departmentdata").change(function() {
             let depData = $(this).val() ;
-            // alert(depData) ;
+            let LocationDepartment = $("#select_location").find(":selected").text() ;
+            // alert(LocationDepartment) ;
             jQuery.ajax({
                 url: '/ajax-get-department-data',
                 type: 'post',
-                data: 'depData='+depData+'&_token={{ csrf_token() }}',
+                data: 'depData='+depData+ '&LocationDepartment='+LocationDepartment+'&_token={{ csrf_token() }}',
                 success: function(result){
                     jQuery('#returndata').html(result) ;
                 }
@@ -109,6 +125,24 @@
         })
     })
 </script>
+
+<script>
+    $(document).ready(function() {
+        $("#select_location").change(function() {
+            let locationName = $(this).val() ;
+            // alert(depData) ;
+            jQuery.ajax({
+                url: '/ajax-get-departments',
+                type: 'post',
+                data: 'locationName='+locationName+'&_token={{ csrf_token() }}',
+                success: function(result){
+                    jQuery('#departmentdata').html(result) ;
+                }
+            })
+        })
+    })
+</script>
+
 
 
 
