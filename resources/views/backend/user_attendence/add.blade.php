@@ -69,7 +69,7 @@
 
                             <div class="row" id="returndata">
 
-                                @foreach ($datauser as $item)
+                                {{-- @foreach ($datauser as $item)
                                 <div class="col-7">
 
                                    <div class="form-group">
@@ -84,7 +84,7 @@
                                         </div>
                                     </div>
                                 </div>
-                                   @endforeach
+                                   @endforeach --}}
 
                             </div>
 
