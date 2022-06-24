@@ -55,9 +55,9 @@
                                         <div class="controls">
                                             <select name="employee_department" id="departmentdata"  class="form-control">
                                                 <option selected disabled>Select Department</option>
-                                                @foreach ($datadepartment as $item1)
+                                                {{-- @foreach ($datadepartment as $item1)
                                                 <option value="{{ $item1->department_name }}" > {{ $item1->department_name }} </option>
-                                                @endforeach
+                                                @endforeach --}}
                                             </select>
                                         </div>
                                     </div>
@@ -70,10 +70,10 @@
                             <div class="row" id="returndata">
 
                                 @foreach ($datauser as $item)
-                                <div class="col-4">
+                                <div class="col-7">
 
                                    <div class="form-group">
-                                    <h5>{{ $item->name }} </h5>
+                                    <h5 style="color: rgb(235, 72, 72); font-weight:bold">{{ $item->name }} </h5>
                                     <input type="hidden" name="employee_name[]" value="{{ $item->name }}">
                                         <div class="controls">
                                             <select name="employee_attendence[]"  class="form-control">

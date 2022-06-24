@@ -59,9 +59,9 @@ class AttendenceManagementAdminCOntroller extends Controller
         $data = new_user::all()->where('user_department' , $depData)->where('user_department_location' , $LocationDepartment) ;
         foreach ($data as $key=>$row) {
             $html = 
-            '<div class="col-4">
+            '<div class="col-7">
             <div class="form-group">
-             <h5> '.  $row->name  .' </h5>
+             <h5 style="color: rgb(235, 72, 72); font-weight:bold"> '.  $row->name  .' </h5>
              <input type="hidden" name="employee_name[]" value="'. $row->name .'">
                  <div class="controls">
                      <select name="employee_attendence[]"  class="form-control">
