@@ -12,7 +12,7 @@
             <!-- Basic Forms -->
              <div class="box">
                <div class="box-header with-border">
-                 <h4 class="box-title">Add Department</h4>
+                 <h4 class="box-title">Add Location</h4>
                  <a href=" {{ route('manage-location.view') }} " class="btn btn-rounded btn-success md-5" style="float: right"> View Location </a>
 
                </div>

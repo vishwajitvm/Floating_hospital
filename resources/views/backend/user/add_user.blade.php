@@ -48,9 +48,9 @@
                                         <div class="controls">
                                             <select name="user_department" id="departmentData" required class="form-control">
                                                 <option value="" selected="" disabled>Select Department</option>
-                                               @foreach ($data as $item)
+                                               {{-- @foreach ($data as $item)
                                                <option value="{{ $item->department_name }} "> {{ $item->department_name }} </option>
-                                               @endforeach
+                                               @endforeach --}}
                                             </select>
                                         </div>
                                     </div>

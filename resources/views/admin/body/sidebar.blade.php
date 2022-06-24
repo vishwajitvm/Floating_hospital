@@ -29,7 +29,54 @@
 			<span>Dashboard</span>
           </a>
         </li>  
+
+        		  <!--profile-->
+        <li class="treeview {{ ($prefix == '/profile')?'active':'' }}">
+          <a href="#">
+            <i data-feather="mail"></i> <span>Manage Profile</span>
+            <span class="pull-right-container">
+              <i class="fa fa-angle-right pull-right"></i>
+            </span>
+          </a>
+          <ul class="treeview-menu">
+            <li><a href=" {{Route('profile.view')}} "><i class="ti-more"></i>Your Profile</a></li>
+            <li><a href=" {{Route('password.view')}} "><i class="ti-more"></i>Change Password</a></li>
+          </ul>
+        </li>
+
+        <li class="header nav-small-cap">HOSPITAL MANAGEMENT</li>		  
+
+
+        <!--loaction-->
+        <li class="treeview {{ ($prefix == '/manage-location')?'active':'' }}">
+          <a href="#">
+            <i data-feather="mail"></i> <span>Manage Location</span>
+            <span class="pull-right-container">
+              <i class="fa fa-angle-right pull-right"></i>
+            </span>
+          </a>
+          <ul class="treeview-menu">
+            <li><a href="{{Route('manage-location.add')}}"><i class="ti-more"></i>Add Location</a></li>
+            <li><a href="{{Route('manage-location.view')}}"><i class="ti-more"></i>View Location</a></li>
+          </ul>
+        </li>
+
+        <!--manage department-->
+        <li class="treeview {{ ($prefix == '/admin-department')?'active':'' }}">
+          <a href="#">
+            <i data-feather="mail"></i> <span>Manage Department</span>
+            <span class="pull-right-container">
+              <i class="fa fa-angle-right pull-right"></i>
+            </span>
+          </a>
+          <ul class="treeview-menu">
+            <li><a href="{{Route('admin-department.add')}}"><i class="ti-more"></i>Add Department</a></li>
+            <li><a href="mailbox_compose.html"><i class="ti-more"></i>View Department</a></li>
+          </ul>
+        </li>
+
 		
+        <!--manage user-->
         <li class="treeview {{ ($prefix == '/users')?'active':'' }} " >
           <a href="#">
             <i data-feather="message-circle"></i>
@@ -47,61 +94,8 @@
           </ul>
         </li> 
 
-        {{-- <li class="treeview {{ ($prefix == '/employee')?'active':'' }}">
-          <a href="#">
-            <i data-feather="mail"></i> <span>Manage Employee</span>
-            <span class="pull-right-container">
-              <i class="fa fa-angle-right pull-right"></i>
-            </span>
-          </a>
-          <ul class="treeview-menu">
-            <li><a href="{{Route('employee.view')}}"><i class="ti-more"></i>View</a></li>
-            <li><a href="mailbox_compose.html"><i class="ti-more"></i>Add</a></li>
-          </ul>
-        </li> --}}
 
-
-		  
-        <li class="treeview {{ ($prefix == '/profile')?'active':'' }}">
-          <a href="#">
-            <i data-feather="mail"></i> <span>Manage Profile</span>
-            <span class="pull-right-container">
-              <i class="fa fa-angle-right pull-right"></i>
-            </span>
-          </a>
-          <ul class="treeview-menu">
-            <li><a href=" {{Route('profile.view')}} "><i class="ti-more"></i>Your Profile</a></li>
-            <li><a href=" {{Route('password.view')}} "><i class="ti-more"></i>Change Password</a></li>
-          </ul>
-        </li>
-
-        <li class="treeview {{ ($prefix == '/manage-location')?'active':'' }}">
-          <a href="#">
-            <i data-feather="mail"></i> <span>Manage Location</span>
-            <span class="pull-right-container">
-              <i class="fa fa-angle-right pull-right"></i>
-            </span>
-          </a>
-          <ul class="treeview-menu">
-            <li><a href="{{Route('manage-location.add')}}"><i class="ti-more"></i>Add Location</a></li>
-            <li><a href="{{Route('manage-location.view')}}"><i class="ti-more"></i>View Location</a></li>
-          </ul>
-        </li>
-
-
-        <li class="treeview {{ ($prefix == '/admin-department')?'active':'' }}">
-          <a href="#">
-            <i data-feather="mail"></i> <span>Manage Department</span>
-            <span class="pull-right-container">
-              <i class="fa fa-angle-right pull-right"></i>
-            </span>
-          </a>
-          <ul class="treeview-menu">
-            <li><a href="{{Route('admin-department.add')}}"><i class="ti-more"></i>Add Department</a></li>
-            <li><a href="mailbox_compose.html"><i class="ti-more"></i>View Department</a></li>
-          </ul>
-        </li>
-
+        <!--manage attendence-->
         <li class="treeview {{ ($prefix == '/attendence-management')?'active':'' }}">
           <a href="#">
             <i data-feather="mail"></i> <span>Manage Attendence</span>
@@ -110,11 +104,29 @@
             </span>
           </a>
           <ul class="treeview-menu">
-            <li><a href="{{ Route('attendence-management.add') }}"><i class="ti-more"></i>Add</a></li>
+            <li><a href="{{ Route('attendence-management.add') }}"><i class="ti-more"></i>Add Attendence</a></li>
             <li><a href="{{ Route('attendence-management.viewall') }}"><i class="ti-more"></i>View all</a></li>
             <li><a href="{{ Route('attendence-management.view-today') }}"><i class="ti-more"></i>View Todays</a></li>
           </ul>
         </li>
+
+        <li class="header nav-small-cap">MANAGE PATIENT</li>		  
+
+        <li class="treeview {{ ($prefix == '/manage-schedule')?'active':'' }}">
+          <a href="#">
+            <i data-feather="mail"></i> <span>Manage Schedule</span>
+            <span class="pull-right-container">
+              <i class="fa fa-angle-right pull-right"></i>
+            </span>
+          </a>
+          <ul class="treeview-menu">
+            <li><a href="{{ Route('manage-schedule.add') }}"><i class="ti-more"></i>Add Schedule</a></li>
+            <li><a href="mailbox_read_mail.html"><i class="ti-more"></i>View Todays Schedule</a></li>
+            <li><a href="{{ Route('manage-schedule.view') }}"><i class="ti-more"></i>View All</a></li>
+
+          </ul>
+        </li>
+
 
 
         {{-- <li class="treeview">

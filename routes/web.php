@@ -14,8 +14,8 @@ use Illuminate\Support\Facades\Artisan;
 //admin
 use App\Http\Controllers\admin\ManageDepartmentController ;
 use App\Http\Controllers\admin\AttendenceManagementAdminCOntroller ;
-use App\Http\Controllers\admin\ManageEmoloyees ;
 use App\Http\Controllers\admin\ManageLocationController ;
+use App\Http\Controllers\admin\ManageSchedulesCOntroller ;
 
 
 /*
@@ -193,9 +193,17 @@ Route::post('/ajax-get-department-data' , [AttendenceManagementAdminCOntroller::
 
 
 //Manages Employeee
-Route::prefix('employee')->group(function() {
+Route::prefix('manage-schedule')->group(function() {
     //view all employees here
-    Route::get('/view' , [ManageEmoloyees::class , 'ViewallEmployees'])->name('employee.view') ; 
+    Route::get('/add' , [ManageSchedulesCOntroller::class , 'AddSchedules'])->name('manage-schedule.add') ;
+    
+    //store
+    Route::post('/store' , [ManageSchedulesCOntroller::class , 'StoreSchedules'])->name('manage-schedule.store') ; 
+
+    //view all
+    Route::get('/view' , [ManageSchedulesCOntroller::class , 'ViewallSchedules'])->name('manage-schedule.view') ;
+
+
 
 });
 
