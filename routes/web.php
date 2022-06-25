@@ -16,6 +16,7 @@ use App\Http\Controllers\admin\ManageDepartmentController ;
 use App\Http\Controllers\admin\AttendenceManagementAdminCOntroller ;
 use App\Http\Controllers\admin\ManageLocationController ;
 use App\Http\Controllers\admin\ManageSchedulesCOntroller ;
+use App\Http\Controllers\admin\ManageEmployeeVIdeosController ;
 
 
 /*
@@ -203,6 +204,35 @@ Route::prefix('manage-schedule')->group(function() {
     //view all
     Route::get('/view' , [ManageSchedulesCOntroller::class , 'ViewallSchedules'])->name('manage-schedule.view') ;
 
+    //view today
+    Route::get('/view-today' , [ManageSchedulesCOntroller::class , 'VIewTodaySchedules'])->name('manage-schedule.view-today') ;
+
+    //edit
+    Route::get('/edit/{id}' , [ManageSchedulesCOntroller::class , 'EditSchedules'])->name('manage-schedule.edit') ;
+
+    //update
+    Route::post('/update/{id}' , [ManageSchedulesCOntroller::class , 'UpdateSchedules'])->name('manage-schedule.update') ;
+
+    //Delete DeleteSchedule
+    Route::get('/delete/{id}' , [ManageSchedulesCOntroller::class , 'DeleteSchedule'])->name('manage-schedule.delete') ;
+
+});
+
+//
+//Manage Employee Videos
+//
+Route::prefix('manage-employee-videos')->group(function() {
+    //add
+    Route::get('/add' , [ManageEmployeeVIdeosController::class , 'AddManageEmployeeVideos'])->name('manage-employee-videos.add') ;
+
+    //store
+    Route::post('/store' , [ManageEmployeeVIdeosController::class , 'StoreEmployeeVideos'])->name('manage-employee-videos.store') ;
+
+    //view
+    Route::get('/view' , [ManageEmployeeVIdeosController::class , 'ViewEmployeeVIdeos'])->name('manage-employee-videos.view') ;
+
+    //delete
+    Route::get('/delete/{id}' , [ManageEmployeeVIdeosController::class , 'DeleteEmployeeVideos'])->name('manage-employee-videos.delete') ;
 
 
 });

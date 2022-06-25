@@ -121,11 +121,41 @@
           </a>
           <ul class="treeview-menu">
             <li><a href="{{ Route('manage-schedule.add') }}"><i class="ti-more"></i>Add Schedule</a></li>
-            <li><a href="mailbox_read_mail.html"><i class="ti-more"></i>View Todays Schedule</a></li>
+            <li><a href="{{ Route('manage-schedule.view-today') }}"><i class="ti-more"></i>View Todays Schedule</a></li>
             <li><a href="{{ Route('manage-schedule.view') }}"><i class="ti-more"></i>View All</a></li>
 
           </ul>
         </li>
+
+        <li class="header nav-small-cap">MANAGE RESOURCES</li>		  
+
+
+        <li class="treeview {{ ($prefix == '/manage-employee-videos')?'active':'' }}">
+          <a href="#">
+            <i data-feather="mail"></i> <span>Employee Videos</span>
+            <span class="pull-right-container">
+              <i class="fa fa-angle-right pull-right"></i>
+            </span>
+          </a>
+          <ul class="treeview-menu">
+            <li><a href="{{ Route('manage-employee-videos.add') }}"><i class="ti-more"></i>Add Employee Videos</a></li>
+            <li><a href="{{ Route('manage-employee-videos.view') }}"><i class="ti-more"></i>View Employee Videos</a></li>
+          </ul>
+        </li>
+
+        <li class="treeview">
+          <a href="#">
+            <i data-feather="mail"></i> <span>Manage Notice</span>
+            <span class="pull-right-container">
+              <i class="fa fa-angle-right pull-right"></i>
+            </span>
+          </a>
+          <ul class="treeview-menu">
+            <li><a href="mailbox_inbox.html"><i class="ti-more"></i>Add Notice</a></li>
+            <li><a href="mailbox_compose.html"><i class="ti-more"></i>View Notice</a></li>
+          </ul>
+        </li>
+
 
 
 

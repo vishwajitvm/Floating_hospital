@@ -47,7 +47,7 @@ class AttendenceManagementAdminCOntroller extends Controller
     public function ViewTodaysAttendence() {
         $currentDate = date('Y-m-d');
         $user = new_user::all()->count() ;
-        $data = employee_attendance::all()->where('todays_date' , '>=' , $currentDate);
+        $data = employee_attendance::all()->where('todays_date' , '==' , $currentDate);
         return view('backend.user_attendence.viewall' ,compact(['data' , 'user'])) ;
         
     }

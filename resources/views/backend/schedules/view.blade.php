@@ -74,8 +74,8 @@
                                     <td> {{ $item->behavioral_dhs_telehelth?$item->behavioral_dhs_telehelth:"0" }} </td>
                                     <td> {{ $item->behavioral_dhs_inperson?$item->behavioral_dhs_inperson:"0" }} </td>
                                     <td>
-                                        <a class="btn btn-info mt-2" href="  {{Route('admin-department.delete',$item->id)}} " id="delete">Edit</a> &nbsp;&nbsp;
-                                        <a class="btn btn-danger mt-2" href="  {{Route('admin-department.delete',$item->id)}} " id="delete">Delete</a>
+                                        <a class="btn btn-info mt-2" href=" {{Route('manage-schedule.edit',$item->id)}} " id="edit">Edit</a> &nbsp;&nbsp;
+                                        <a class="btn btn-danger mt-2" href=" {{Route('manage-schedule.delete',$item->id)}} " id="delete">Delete</a>
    
                                     </td>
 
