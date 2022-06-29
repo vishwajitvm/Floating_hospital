@@ -17,6 +17,7 @@ use App\Http\Controllers\admin\AttendenceManagementAdminCOntroller ;
 use App\Http\Controllers\admin\ManageLocationController ;
 use App\Http\Controllers\admin\ManageSchedulesCOntroller ;
 use App\Http\Controllers\admin\ManageEmployeeVIdeosController ;
+use App\Http\Controllers\admin\ManageNoticeController ;
 
 
 /*
@@ -234,9 +235,23 @@ Route::prefix('manage-employee-videos')->group(function() {
     //delete
     Route::get('/delete/{id}' , [ManageEmployeeVIdeosController::class , 'DeleteEmployeeVideos'])->name('manage-employee-videos.delete') ;
 
-
 });
 
+//
+//Manage Notices of employee
+//
+Route::prefix('manage-notice')->group(function() {
+    //add
+    Route::get('/add' , [ManageNoticeController::class , 'AddMangeNotice'])->name('manage-notice.add') ;
+
+    //store
+    Route::post('/store' , [ManageNoticeController::class , 'StoreNotices'])->name('manage-notice.store') ;
+
+    //view
+    Route::get('/view' , [ManageNoticeController::class , 'ViewAllNotice'])->name('manage-notice.view') ;
+
+
+}) ;
 
 
 

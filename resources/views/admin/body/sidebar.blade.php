@@ -143,7 +143,7 @@
           </ul>
         </li>
 
-        <li class="treeview">
+        <li class="treeview {{ ($prefix == '/manage-notice')?'active':'' }}">
           <a href="#">
             <i data-feather="mail"></i> <span>Manage Notice</span>
             <span class="pull-right-container">
@@ -151,8 +151,8 @@
             </span>
           </a>
           <ul class="treeview-menu">
-            <li><a href="mailbox_inbox.html"><i class="ti-more"></i>Add Notice</a></li>
-            <li><a href="mailbox_compose.html"><i class="ti-more"></i>View Notice</a></li>
+            <li><a href="{{ Route('manage-notice.add') }}"><i class="ti-more"></i>Add Notice</a></li>
+            <li><a href="{{ Route('manage-notice.view') }}"><i class="ti-more"></i>View Notice</a></li>
           </ul>
         </li>
 
